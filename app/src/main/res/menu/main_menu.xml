@@ -27,7 +27,10 @@
         android:title="Login"
 
         />
-
+    <item
+        android:id="@+id/menu_sign_up"
+        android:title="Register"
+        />
     <item
         android:id="@+id/menu_dashboard"
         android:title="Dashboard"

@@ -47,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
         MenuItem loginItem = menu.findItem(R.id.menu_sign_in);
         loginItem.setVisible(!isLoggedIn);
 
+        MenuItem registerItem = menu.findItem(R.id.menu_sign_up);
+        registerItem.setVisible(!isLoggedIn);
+
         MenuItem logoutItem = menu.findItem(R.id.menu_sign_out);
         logoutItem.setVisible(isLoggedIn);
 
         MenuItem dashboardItem = menu.findItem(R.id.menu_dashboard);
-        logoutItem.setVisible(isLoggedIn);
+        dashboardItem.setVisible(isLoggedIn);
 
         return true;
     }
@@ -105,7 +108,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.menu_dashboard) {
+        }
+        else if (id == R.id.menu_sign_up) {
+            // Start LoginActivity
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+            return true;
+        }else if (id == R.id.menu_dashboard) {
             // Start DashboardActivity
             Intent intent = new Intent(this, DashboardActivity.class);
             startActivity(intent);
