@@ -84,6 +84,10 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
+                    android:text="Login"
+                    android:backgroundTint="@color/orange"
+                    android:layout_marginRight="20dp"
+                     />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,6 +95,9 @@
                     android:text="Get Started!"
                     android:textSize="16sp"
                     android:layout_marginBottom="20dp" />
+                    android:text="Register"
+                    android:backgroundTint="@color/orange"
+                    /> <!-- Apply button style -->
 
                 <!-- Horizontal LinearLayout to center align buttons -->
                 <LinearLayout
@@ -192,3 +199,76 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingVertical="20dp"
+            android:background="@color/white"
+            android:gravity="center"> <!-- Center align all children -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:src="@drawable/contact"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connect with Us!"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reach out for any queries or support.\n We're here to help!"
+                android:textSize="16sp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/orange"
+                style="@style/OrangeButton" /> <!-- Apply button style -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingVertical="20dp"
+            android:background="@color/lightOrange"
+            android:gravity="center"> <!-- Center align all children -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:src="@drawable/feedback"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share your experience with Us!"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your feedback matters!\n Share your thoughts and help us improve."
+                android:textSize="16sp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feedback"
+                android:backgroundTint="@color/orange"
+                android:layout_marginRight="20dp"
+                style="@style/OrangeButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
