@@ -1,10 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<RelativeLayout
     android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="0dp"
     tools:context=".ContactActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Toolbar at the top -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFA500"
+        android:gravity="center_vertical">
+
+        <!-- Include the custom logo layout -->
+        <include layout="@layout/toolbar_logo" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Rest of the layout below the toolbar -->
+    <RelativeLayout
+        android:id="@+id/contact_sub_group"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:padding="25dp"
+        android:background="@drawable/rounded_corners"
+        android:layout_below="@id/toolbar"> <!-- This places the layout below the toolbar -->
+
+        <TextView
+            android:id="@+id/customer_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can get in touch with us through below platforms"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"
+            android:layout_marginTop="5dp"
+            android:textSize="13sp"
+            android:paddingTop="20sp"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:id="@+id/cust_support"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/customer_textView"
+            android:background="@drawable/rounded_sub_corner"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Customer support details -->
+            <TextView
+                android:id="@+id/tv_customer_support_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CUSTOMER SUPPORT"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/cusomer_listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left">
+
+                <ImageView
+                    android:id="@+id/contact_logo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_contact" />
+
+                <TextView
+                    android:id="@+id/contact_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+91-1234567890"
+                    android:textSize="16sp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_toEndOf="@+id/contact_logo"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true" />
+
+            </RelativeLayout>
+
+            <!-- Email support details -->
+            <RelativeLayout
+                android:id="@+id/email_listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left">
+
+                <ImageView
+                    android:id="@+id/email_logo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    android:id="@+id/email_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="venueverse@gmail.com"
+                    android:textSize="16sp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_toEndOf="@+id/email_logo"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Social media group -->
+        <LinearLayout
+            android:id="@+id/social_media_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cust_support"
+            android:background="@drawable/rounded_sub_corner"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/social_media_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SOCIAL MEDIA"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black" />
+
+            <!-- Social media platforms -->
+            <RelativeLayout
+                android:id="@+id/socialMedia_listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/instagram_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left">
+
+                    <ImageView
+                        android:id="@+id/instagram_logo"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_instagram" />
+
+                    <TextView
+                        android:id="@+id/insta_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="venueverse"
+                        android:textSize="16sp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_toEndOf="@+id/instagram_logo"
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/twitter_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/instagram_listView"
+                    android:gravity="left">
+
+                    <ImageView
+                        android:id="@+id/twitter_logo"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_twitter" />
+
+                    <TextView
+                        android:id="@+id/twitter_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="venueverse"
+                        android:textSize="16sp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_toEndOf="@+id/twitter_logo"
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/facebook_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitter_listView"
+                    android:gravity="left">
+
+                    <ImageView
+                        android:id="@+id/facebook_logo"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_facebook" />
+
+                    <TextView
+                        android:id="@+id/facebook_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="venueverse"
+                        android:textSize="16sp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_toEndOf="@+id/facebook_logo"
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VenueVerse"
         tools:targetApi="31">
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
         <activity
             android:name=".LogoutActivity"
             android:exported="false" />
@@ -26,13 +30,31 @@
             android:exported="false" />
         <activity
             android:name=".FeedbackActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
+
         <activity
             android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".MainActivity3"
             android:exported="false" />
+        <activity android:name=".convention"
+            android:exported="false"/>
+        <activity android:name=".sports"
+            android:exported="false"/>
+        <activity android:name=".accomodation"
+            android:exported="false"/>
+        <activity android:name=".auditorium"
+            android:exported="false"/>
+        <activity android:name=".convention_details"
+            android:exported="false"/>
+        <activity android:name=".accomd_details"
+            android:exported="false"/>
+        <activity android:name=".audi_details"
+            android:exported="false"/>
+        <activity android:name=".sports_details"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -42,6 +64,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.firebase.database.FirebaseDatabaseUrl"
+            android:value="https://venueverse-5c840.firebaseio.com/"
+            />
     </application>
 
 </manifest>

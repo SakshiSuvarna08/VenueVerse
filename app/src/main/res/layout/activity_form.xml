@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="18dp"> <!-- Lighter shade of orange -->
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/confirmation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="18dp"
+        android:baselineAligned="false"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="CONFIRMATION"
+        android:background="#FF9F1C"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <!-- Main Container for Form Elements -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/rounded_layout"
+
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!-- Event Date -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Event Date"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/event_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif"
+                    android:hint="Select Date"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_date_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF9F1C"
+                    android:text="Pick Date"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Number of Days -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Number of Days"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <NumberPicker
+                android:id="@+id/days_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+        <!-- Package Radio Group -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Package"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/package_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_package1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="AC" />
+
+                <RadioButton
+                    android:id="@+id/radio_package2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:checked="true"
+                    android:text="Non AC" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Guest Count -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="Guest Count"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/guest_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:hint="Enter guest count"
+                android:inputType="number"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Pay Button -->
+    <Button
+        android:id="@+id/pay_button"
+        android:layout_width="310dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#FF9F1C"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="PAY ₹500.00"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="32sp" />
+
+</LinearLayout>

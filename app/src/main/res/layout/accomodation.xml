@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0EFEE"
+    android:padding="16dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/mainheading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/heading_background"
+                android:text="Accomodations"
+                android:textColor="#120E0F"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mainheading"
+                android:orientation="vertical"
+                android:paddingTop="16dp">
+
+                <RelativeLayout
+                    android:id="@+id/relative1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/lightOrange"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/placeimage1"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentStart="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/event" />
+
+                    <TextView
+                        android:id="@+id/place_name_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/placeimage1"
+                        android:text=" "
+                        android:textColor="#0B0B0A"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/place_description_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_name_1"
+                        android:layout_toRightOf="@id/placeimage1"
+                        android:text="500 persons"
+                        android:textColor="#070707"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/price1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_description_1"
+                        android:layout_toRightOf="@id/placeimage1"
+                        android:text=" "
+                        android:textColor="#FF1744"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/placerating1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rating 4.5"
+                        android:textColor="#070706"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/lightOrange"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:id="@+id/placeimage2"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/event" />
+
+                    <TextView
+                        android:id="@+id/place_name_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/placeimage2"
+                        android:text=" "
+                        android:textColor="#0F0E0D"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/place_description_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_name_2"
+                        android:layout_toRightOf="@id/placeimage2"
+                        android:text="500 persons"
+                        android:textColor="#090908"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/price2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_description_2"
+                        android:layout_toRightOf="@id/placeimage2"
+                        android:text=" "
+                        android:textColor="#FF1744"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/place_rating_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rating 4.7"
+                        android:textColor="#070706"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="16dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/lightOrange"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:id="@+id/placeimage3"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/event" />
+
+                    <TextView
+                        android:id="@+id/place_name_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/placeimage3"
+                        android:text=" "
+                        android:textColor="#10100C"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/place_description_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_name_3"
+                        android:layout_toRightOf="@id/placeimage3"
+                        android:text="500 Persons"
+                        android:textColor="#0D0C09"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/price3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_description_3"
+                        android:layout_marginStart="16dp"
+                        android:layout_toRightOf="@id/placeimage3"
+                        android:text=" "
+                        android:textColor="#FF1744"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/place_rating_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rating 4.6"
+                        android:textColor="#040403"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="16dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@color/lightOrange"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:id="@+id/place_image_4"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/event" />
+
+                    <TextView
+                        android:id="@+id/place_name_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/place_image_4"
+                        android:text=" "
+                        android:textColor="#070706"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/place_description_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_name_4"
+                        android:layout_toRightOf="@id/place_image_4"
+                        android:text="500 Persons"
+                        android:textColor="#0B0B0A"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/price4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_description_4"
+                        android:layout_toRightOf="@id/place_image_4"
+                        android:text=" "
+                        android:textColor="#FF1744"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/place_rating_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="Rating 4.8"
+                        android:textColor="#0D0D0D"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="16dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

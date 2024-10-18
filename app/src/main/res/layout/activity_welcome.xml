@@ -1,10 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WelcomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <!-- Offer TextView -->
+            <TextView
+                android:id="@+id/offerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="OFFERS"
+                android:textAlignment="center"
+                android:background="@color/orange"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <!-- Slider CardView with Image -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/offerText"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="@color/new_color"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="20"
+                    app:iss_delay="1000"
+                    app:iss_period="1000"
+                    app:iss_title_background="@color/new_color">
+                </com.denzcoskun.imageslider.ImageSlider>
+            </androidx.cardview.widget.CardView>
+            <!-- CATEGORY TextView -->
+            <TextView
+                android:id="@+id/categoryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardview1"
+                android:layout_marginTop="16dp"
+                android:text="CATEGORY"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <!-- Accommodation CardView with ImageView -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/categoryText"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="@color/new_color"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+                <!-- Using RelativeLayout to position items inside CardView -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+                    <!-- Image aligned to the right -->
+                    <!-- Main text aligned to the left -->
+                    <ImageView
+                        android:id="@+id/cardImage"
+                        android:layout_width="126dp"
+                        android:layout_height="126dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/img_3" />
+
+                    <TextView
+                        android:id="@+id/accommodation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/cardImage"
+                        android:paddingLeft="2dp"
+                        android:text="Accommodation"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+                    <!-- Secondary text below the main text -->
+                    <TextView
+                        android:id="@+id/expandText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/accommodation"
+                        android:layout_alignStart="@id/accommodation"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="23dp"
+                        android:paddingTop="8dp"
+                        android:text=" Stay or reside temporarily or permanently, such as a  hotel,apartment or house."
+                        android:textColor="@color/orange"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!-- Convention hall CardView with ImageView -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview5"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/cardview4"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="@color/new_color"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+                <!-- Using RelativeLayout to position items inside CardView -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+                    <!-- Image aligned to the right -->
+                    <!-- Main text aligned to the left -->
+                    <ImageView
+                        android:id="@+id/cardImage3"
+                        android:layout_width="105dp"
+                        android:layout_height="125dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/img_10" />
+
+                    <TextView
+                        android:id="@+id/convention"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/cardImage3"
+                        android:paddingLeft="2dp"
+                        android:text="Convention Hall"
+                        android:textColor="@color/black"
+
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <!-- Secondary text below the main text -->
+                    <TextView
+                        android:id="@+id/expandText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/convention"
+                        android:layout_alignStart="@id/convention"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="36dp"
+                        android:paddingTop="8dp"
+                        android:text="Designed to host conferences, exhibitions, and large-scale events"
+                        android:textColor="@color/orange"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!-- Sports CardView with ImageView -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview4"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/cardview3"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="@color/new_color"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+
+                <!-- Using RelativeLayout to position items inside CardView -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <!-- Image aligned to the right -->
+
+                    <!-- Main text aligned to the left -->
+
+                    <ImageView
+                        android:id="@+id/cardImage2"
+                        android:layout_width="126dp"
+                        android:layout_height="126dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/img_8" />
+
+                    <TextView
+                        android:id="@+id/auditorium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/cardImage2"
+                        android:paddingLeft="2dp"
+                        android:text="Sports Stadium"
+
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <!-- Secondary text below the main text -->
+                    <TextView
+                        android:id="@+id/expandText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/auditorium"
+                        android:layout_alignStart="@id/auditorium"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="30dp"
+                        android:paddingTop="8dp"
+                        android:text="Hosting sporting events, with seating for spectators."
+                        android:textColor="@color/orange"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!-- Auditorium CardView with ImageView -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/cardview2"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/new_color"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+
+                <!-- Using RelativeLayout to position items inside CardView -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <!-- Image aligned to the right -->
+
+                    <!-- Main text aligned to the left -->
+
+                    <ImageView
+                        android:id="@+id/cardImage4"
+                        android:layout_width="126dp"
+                        android:layout_height="126dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/img_9" />
+
+                    <TextView
+                        android:id="@+id/sports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/cardImage4"
+                        android:paddingLeft="2dp"
+                        android:text="Auditorium"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <!-- Secondary text below the main text -->
+                    <TextView
+                        android:id="@+id/expandText4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sports"
+                        android:layout_alignStart="@id/sports"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="37dp"
+                        android:paddingTop="8dp"
+                        android:text="Hosting events such as lectures, performances,public gatherings"
+                        android:textColor="@color/orange"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
+

@@ -1,179 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    android:orientation="vertical">
 
-        <!-- Toolbar -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFA500"
+        android:gravity="center_vertical">
+
+        <!-- Include the custom logo layout -->
+        <include layout="@layout/toolbar_logo"
+           />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#FFA500"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="vertical"
             >
 
-            <!-- Include the custom logo layout -->
-            <include layout="@layout/toolbar_logo" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <!-- ImageView -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp">
-
-            <!-- ImageView as the background -->
-            <ImageView
-                android:id="@+id/image_view"
+            <!-- ImageView -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:contentDescription="Event Image"
-                android:src="@drawable/event"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true" />
+                android:layout_height="400dp">
 
-            <!-- TextView on top of the ImageView -->
-            <TextView
-                android:id="@+id/text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VenueVerse simplifies your venue search, offering a seamless booking experience for events, weddings, and corporate functions."
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:background="@color/grey"
-                android:textColor="@color/black"
-                android:fontFamily="cursive"
-                android:layout_gravity="center"
-                android:padding="16dp" />
-        </FrameLayout>
+                <!-- ImageView as the background -->
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:contentDescription="Event Image"
+                    android:src="@drawable/event"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true" />
 
+                <!-- TextView on top of the ImageView -->
+                <TextView
+                    android:id="@+id/text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VenueVerse simplifies your venue search, offering a seamless booking experience for events, weddings, and corporate functions."
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:background="@color/grey"
+                    android:textColor="@color/black"
+                    android:fontFamily="cursive"
+                    android:layout_gravity="center"
+                    android:padding="16dp" />
+            </FrameLayout>
 
-        <!-- LinearLayout for TextViews and Buttons -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:paddingVertical="20dp"
-            android:background="@color/lightOrange"
-            android:gravity="center"> <!-- Center align all children -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/welcome"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome to Venue Verse!"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Get Started!"
-                android:textSize="16sp"
-                android:layout_marginBottom="20dp" />
-
-            <!-- Horizontal LinearLayout to center align buttons -->
+            <!-- LinearLayout for TextViews and Buttons -->
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"> <!-- Center align buttons -->
-                <Button
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:paddingVertical="20dp"
+
+                android:gravity="center"
+                android:background="@drawable/rounded_corners"> <!-- Center align all children -->
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/welcome"/>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:background="@color/orange"
-                    android:layout_marginRight="20dp"
-                     />
+                    android:text="Welcome to Venue Verse!"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
 
-                <Button
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Register"
-                    android:background="@color/orange"
-                    /> <!-- Apply button style -->
+                    android:text="Get Started!"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="20dp" />
 
+                <!-- Horizontal LinearLayout to center align buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"> <!-- Center align buttons -->
+
+                    <Button
+                        android:id="@+id/login_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login"
+                        android:backgroundTint="@color/orange"
+                        android:layout_marginRight="20dp" />
+
+                    <Button
+                        android:id="@+id/register_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register"
+                        android:backgroundTint="@color/orange" />
+                </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:paddingVertical="20dp"
+                android:background="@color/white"
+                android:gravity="center"> <!-- Center align all children -->
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/contact"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connect with Us!"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reach out for any queries or support.\n We're here to help!"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="20dp" />
+
+                <Button
+                    android:id="@+id/contact_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us"
+                    android:backgroundTint="@color/orange" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:paddingVertical="20dp"
+                android:gravity="center"
+                android:background="@drawable/rounded_corners"> <!-- Center align all children -->
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:src="@drawable/feedback"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share your experience with Us!"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your feedback matters!\n Share your thoughts and help us improve."
+                    android:textSize="16sp"
+                    android:layout_marginBottom="20dp" />
+
+                <Button
+                    android:id="@+id/feedback_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feedback"
+                    android:backgroundTint="@color/orange" />
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:paddingVertical="20dp"
-            android:background="@color/white"
-            android:gravity="center"> <!-- Center align all children -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/contact"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Connect with Us!"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reach out for any queries or support.\n We're here to help!"
-                android:textSize="16sp"
-                android:layout_marginBottom="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contact Us"
-                android:layout_marginRight="20dp"
-                android:background="@color/orange"
-                style="@style/OrangeButton" /> <!-- Apply button style -->
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:paddingVertical="20dp"
-            android:background="@color/lightOrange"
-            android:gravity="center"> <!-- Center align all children -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/feedback"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Share your experience with Us!"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your feedback matters!\n Share your thoughts and help us improve."
-                android:textSize="16sp"
-                android:layout_marginBottom="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Feedback"
-                android:layout_marginRight="20dp"
-                style="@style/OrangeButton" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

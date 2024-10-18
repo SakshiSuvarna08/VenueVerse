@@ -5,16 +5,13 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.MenuItemCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +32,44 @@ public class MainActivity extends AppCompatActivity {
             toolbar.setOverflowIcon(overflowIcon);
         }
 
+        // Initialize buttons and set click listeners
+        Button loginButton = findViewById(R.id.login_button);
+        Button registerButton = findViewById(R.id.register_button);
+        Button contactButton = findViewById(R.id.contact_button);
+        Button feedbackButton = findViewById(R.id.feedback_button);
+
+        // Set click listeners for buttons
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        feedbackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,11 +82,14 @@ public class MainActivity extends AppCompatActivity {
         MenuItem loginItem = menu.findItem(R.id.menu_sign_in);
         loginItem.setVisible(!isLoggedIn);
 
+        MenuItem registerItem = menu.findItem(R.id.menu_sign_up);
+        registerItem.setVisible(!isLoggedIn);
+
         MenuItem logoutItem = menu.findItem(R.id.menu_sign_out);
         logoutItem.setVisible(isLoggedIn);
 
         MenuItem dashboardItem = menu.findItem(R.id.menu_dashboard);
-        logoutItem.setVisible(isLoggedIn);
+        dashboardItem.setVisible(isLoggedIn);
 
         return true;
     }
@@ -65,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         menu.findItem(R.id.menu_sign_in).setVisible(!isLoggedIn);
         menu.findItem(R.id.menu_sign_out).setVisible(isLoggedIn);
         menu.findItem(R.id.menu_dashboard).setVisible(isLoggedIn);
+        menu.findItem(R.id.menu_welcome).setVisible(isLoggedIn);
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -105,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.menu_sign_up) {
+            // Start RegisterActivity
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+            return true;
         } else if (id == R.id.menu_dashboard) {
             // Start DashboardActivity
             Intent intent = new Intent(this, DashboardActivity.class);
@@ -119,6 +163,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
