@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -14,7 +15,7 @@ import com.denzcoskun.imageslider.models.SlideModel;
 
 import java.util.ArrayList;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends BaseActivity {
 
     ImageSlider imageSlider;
     CardView Accommodation_cardView, Convention_cardView, Sports_cardView, Auditorium_cardView;
@@ -23,6 +24,10 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Accommodation_cardView = findViewById(R.id.cardview2);
         Convention_cardView = findViewById(R.id.cardview5);
@@ -116,8 +121,9 @@ public class WelcomeActivity extends AppCompatActivity {
         });
     }
 
+    /*
     @Override
     public void onBackPressed() {
         finishAffinity();  // Close all activities
-    }
+    }*/
 }

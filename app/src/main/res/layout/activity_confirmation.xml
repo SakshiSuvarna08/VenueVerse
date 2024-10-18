@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Toolbar at the top -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFA500"
+        android:gravity="center_vertical">
+
+        <!-- Include the custom logo layout -->
+        <include layout="@layout/toolbar_logo" />
+    </androidx.appcompat.widget.Toolbar>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:layout_below="@+id/toolbar"
     android:orientation="vertical"
     android:fontFamily="sans-serif"
     android:padding="16dp"
@@ -46,3 +62,4 @@
         android:onClick="goToDashboard" />
 
 </LinearLayout>
+</RelativeLayout>

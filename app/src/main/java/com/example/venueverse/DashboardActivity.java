@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,16 +17,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends BaseActivity {
 
     LinearLayout bookingsContainer;
     DatabaseReference databaseReference;
-    String username;
+    String username, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // Initialize the container layout
         bookingsContainer = findViewById(R.id.bookings_container);
@@ -33,6 +38,10 @@ public class DashboardActivity extends AppCompatActivity {
         // Get intent data
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
+
+        //use this as no username extraction logic present
+        email = intent.getStringExtra("username");
+
         if (username == null || username.isEmpty()) {
             username = "nk";  // Default username in case it's not passed
         }
