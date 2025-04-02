@@ -1,5 +1,6 @@
 package com.example.venueverse;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +33,8 @@ public class FeedbackActivity extends BaseActivity{
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Set custom overflow icon
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.menu_icon));
 
         // Initializing Views
         nameInput = findViewById(R.id.nameInput);
@@ -40,6 +44,7 @@ public class FeedbackActivity extends BaseActivity{
 
         // Initialize Firebase Database
         reference = FirebaseDatabase.getInstance().getReference("Feedback");
+
 
         // Submit Button OnClickListener
         submitButton.setOnClickListener(new View.OnClickListener() {

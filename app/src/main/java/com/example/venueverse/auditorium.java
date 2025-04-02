@@ -8,15 +8,19 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class auditorium extends AppCompatActivity {
+public class auditorium extends BaseActivity {
 
     private FirebaseDatabase database;
     private String valueReceived;  // To store the received venue type
@@ -36,6 +40,12 @@ public class auditorium extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.auditorium);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Set custom overflow icon
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.menu_icon));
 
         // Receiving the venue_type from the Intent
         Intent intent = getIntent();
@@ -124,7 +134,13 @@ public class auditorium extends AppCompatActivity {
     private void openDetailsPage(String placeKey) {
         // Open details page with the placeKey
         Intent intent = new Intent(this, audi_details.class);
-        intent.putExtra("placeKey", placeKey);  // Pass the place key
+        intent.putExtra("placeKey", placeKey);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String Email = currentUser.getEmail();
+            intent.putExtra("Email", Email);
+        }// Pass the place key
         startActivity(intent);
     }
 

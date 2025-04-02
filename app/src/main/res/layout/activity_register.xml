@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -15,156 +16,154 @@
         <include layout="@layout/toolbar_logo" />
     </androidx.appcompat.widget.Toolbar>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:orientation="vertical"
-    android:gravity="center"> <!-- Center the form -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VenueVerse"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textColor="#000000"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center"/>
-
-
-    <!-- Registration Form Layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="16dp"
         android:orientation="vertical"
-        android:background="@drawable/rounded_corners"
-        android:padding="16dp">
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Join our community!"
-            android:textSize="24dp"
+            android:text="VenueVerse"
+            android:textStyle="bold"
+            android:textSize="30dp"
             android:textColor="#000000"
             android:layout_marginBottom="20dp"
             android:layout_gravity="center"/>
 
-        <!-- Username Label -->
-        <TextView
-            android:id="@+id/tvuser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username :"
-            android:textSize="18dp"
-            android:layout_marginBottom="2dp"
-            android:textColor="#000000"
-            android:layout_gravity="start"/>
-
-        <!-- Username EditText -->
-
-        <!-- Email Label -->
-        <EditText
-            android:id="@+id/username"
+        <!-- Registration Form Layout -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/edit_text_rounded_corners"
-            android:hint="Enter your username"
-            android:inputType="text"
-            android:padding="12dp" />
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corners"
+            android:padding="16dp">
 
-        <!-- Email EditText -->
-        <TextView
-            android:id="@+id/tvemail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginBottom="2dp"
-            android:text="Email:"
-            android:textColor="#000000"
-            android:textSize="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join our community!"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"/>
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/edit_text_rounded_corners"
-            android:hint="Enter your email"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
+            <!-- Username Label and EditText -->
+            <TextView
+                android:id="@+id/tvuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username :"
+                android:textSize="18dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="#000000"
+                android:layout_gravity="start"/>
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_rounded_corners"
+                android:hint="Enter your username"
+                android:inputType="text"
+                android:padding="12dp" />
 
-        <!-- Password Label -->
-        <TextView
-            android:id="@+id/tvpass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginBottom="2dp"
-            android:text="Password:"
-            android:textColor="#000000"
-            android:textSize="18dp" />
+            <!-- Email Label and EditText -->
+            <TextView
+                android:id="@+id/tvemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_gravity="start"
+                android:layout_marginBottom="2dp"/>
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edit_text_rounded_corners"
+                android:hint="Enter your email"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"/>
 
-        <!-- Password EditText -->
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Enter your password"
-            android:background="@drawable/edit_text_rounded_corners"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
+            <!-- Password Label and EditText -->
+            <TextView
+                android:id="@+id/tvpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password:"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_gravity="start"
+                android:layout_marginBottom="2dp"/>
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Enter your password"
+                android:background="@drawable/edit_text_rounded_corners"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"/>
 
-        <!-- Confirm Password Label -->
-        <TextView
-            android:id="@+id/tvconfirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Confirm Password:"
-            android:textSize="18dp"
-            android:layout_marginBottom="2dp"
-            android:textColor="#000000"
-            android:layout_gravity="start"/>
+            <!-- Confirm Password Label and EditText with Eye Icon for Masking -->
+            <TextView
+                android:id="@+id/tvconfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm Password:"
+                android:textSize="18dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="#000000"
+                android:layout_gravity="start"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
 
-        <!-- Confirm Password EditText -->
-        <EditText
-            android:id="@+id/cpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Confirm your password"
-            android:background="@drawable/edit_text_rounded_corners"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
+                <EditText
+                    android:id="@+id/cpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Confirm your password"
+                    android:background="@drawable/edit_text_rounded_corners"
+                    android:padding="12dp"/>
 
-        <!-- Confirm Button -->
-        <Button
-            android:id="@+id/btnsignup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textSize="18dp"
-            android:backgroundTint="#FF9F1C"
-            android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/cpassword_eye_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="41dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/eyec"/>
+            </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnback"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Already a member? Login here"
-            android:layout_marginTop="5dp"
-            android:textSize="16sp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"
-            android:padding="8dp"
-            />
-        <!-- Optional: Set text color to make it visible -->
+            <!-- Sign Up and Login Buttons -->
+            <Button
+                android:id="@+id/btnsignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textSize="18dp"
+                android:backgroundTint="#FF9F1C"
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/btnback"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Already a member? Login here"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"
+                android:padding="8dp"/>
 
-
-
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </RelativeLayout>

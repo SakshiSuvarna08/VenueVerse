@@ -1,17 +1,17 @@
-package com.example.VenueVerse;
+package com.example.venueverse;
 
 public class Bdata {
 
     String Date;
     int Number_of_Days;
     double Amount_payed;
-    String UserName,VenueName;
+    String Email,VenueName;
 
     public Bdata() {
     }
 
-    public Bdata(String userName, String venueName, String date, int number_of_Days, double amount_payed) {
-        UserName = userName;
+    public Bdata(String email, String venueName, String date, int number_of_Days, double amount_payed) {
+        Email = email;
         VenueName = venueName;
         Date = date;
         Number_of_Days = number_of_Days;
@@ -42,12 +42,12 @@ public class Bdata {
         Amount_payed = amount_payed;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getEmail() {
+        return Email;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        Email = userName;
     }
 
     public String getVenueName() {

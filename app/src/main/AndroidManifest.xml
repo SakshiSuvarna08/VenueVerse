@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -19,6 +20,9 @@
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
@@ -27,6 +31,8 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
+        <activity android:name=".FormActivity"
+            />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -55,6 +61,8 @@
         <activity
             android:name=".auditorium"
             android:exported="false" />
+        <activity android:name=".sports_details" />
+        <activity android:name=".ConfirmationActivity" />
         <activity
             android:name=".convention_details"
             android:exported="false" />
@@ -64,11 +72,12 @@
         <activity
             android:name=".audi_details"
             android:exported="false" />
+
         <activity
-            android:name=".sports_details"
+            android:name=".offers_details"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

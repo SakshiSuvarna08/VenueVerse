@@ -2,16 +2,20 @@ package com.example.venueverse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,28 +25,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-public class RegisterActivity extends BaseActivity {
-    TextView tvuser,tvemail,tvpass,tvconfirm;
-    EditText username,email,password,cpassword;
-    Button btnsignup,btnback;
+public class RegisterActivity extends AppCompatActivity {
+    TextView tvuser, tvemail, tvpass, tvconfirm;
+    EditText username, email, password, cpassword;
+    Button btnsignup, btnback;
+    ImageView cpasswordEyeIcon;
     FirebaseAuth mAuth;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Toast.makeText(RegisterActivity.this, "User already exists with this email",
-                    Toast.LENGTH_SHORT).show();
-            Intent intent2 = new Intent(RegisterActivity.this, LogoutActivity.class);
-            startActivity(intent2);
-            finish();
-        }
-    }
+    boolean isCPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +41,7 @@ public class RegisterActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.menu_icon));
 
         mAuth = FirebaseAuth.getInstance();
         username = findViewById(R.id.username);
@@ -60,6 +50,25 @@ public class RegisterActivity extends BaseActivity {
         cpassword = findViewById(R.id.cpassword);
         btnsignup = findViewById(R.id.btnsignup);
         btnback = findViewById(R.id.btnback);
+        cpasswordEyeIcon = findViewById(R.id.cpassword_eye_icon);
+
+        cpasswordEyeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isCPasswordVisible) {
+                    // Hide password
+                    cpassword.setTransformationMethod(new android.text.method.PasswordTransformationMethod());
+                    cpasswordEyeIcon.setImageResource(R.drawable.eyec);
+                } else {
+                    // Show password
+                    cpassword.setTransformationMethod(null);
+                    cpasswordEyeIcon.setImageResource(R.drawable.eyeo);
+                }
+                isCPasswordVisible = !isCPasswordVisible;
+                // Keep the cursor at the end of the text
+                cpassword.setSelection(cpassword.getText().length());
+            }
+        });
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,20 +89,16 @@ public class RegisterActivity extends BaseActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(vpassword)) {
-                    password.setError("Password is required");
+                if (!Patterns.EMAIL_ADDRESS.matcher(vemail).matches()) {
+                    email.setError("Enter valid email");
                     return;
                 }
 
-
-
-
-                if (TextUtils.isEmpty(vcpassword)) {
-                    cpassword.setError("Confirm Password is required");
+                if (TextUtils.isEmpty(vpassword) || vpassword.length() < 6) {
+                    password.setError("Password is required and must be at least 6 characters");
                     return;
                 }
 
-                // Check if password and confirm password match
                 if (!vpassword.equals(vcpassword)) {
                     cpassword.setError("Passwords do not match");
                     return;
@@ -125,7 +130,7 @@ public class RegisterActivity extends BaseActivity {
                                                         password.setText("");
                                                         cpassword.setText("");
 
-                                                        // Navigate to MainActivity
+                                                        // Navigate to LoginActivity
                                                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                                         startActivity(intent);
                                                         finish(); // Optionally close this activity
@@ -135,22 +140,23 @@ public class RegisterActivity extends BaseActivity {
                                                 }
                                             });
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    // If sign-up fails, display a message to the user.
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
             }
         });
-    }
-}
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        // Back button click listener to navigate back to LoginActivity
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate back to LoginActivity
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish(); // Optionally close this activity
+            }
         });
     }
 }

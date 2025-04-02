@@ -17,6 +17,10 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
+        Intent intent=new Intent();
+        String email;
+
+        email = intent.getStringExtra("Email");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             getWindow().getDecorView().setOnApplyWindowInsetsListener(new OnApplyWindowInsetsListener() {

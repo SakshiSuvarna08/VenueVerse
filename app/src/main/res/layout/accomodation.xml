@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:background="@color/lightOrange"
+                    android:background="@drawable/rounded_corners"
                     android:padding="16dp">
 
                     <ImageView
@@ -63,7 +63,8 @@
                         android:layout_height="100dp"
                         android:layout_alignParentStart="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/event" />
+                        android:src="@drawable/a1"
+                       />
 
                     <TextView
                         android:id="@+id/place_name_1"
@@ -117,8 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:background="@color/lightOrange"
-                    android:layout_marginBottom="16dp">
+                    android:background="@drawable/rounded_corners"                    android:layout_marginBottom="16dp">
 
                     <ImageView
                         android:id="@+id/placeimage2"
@@ -126,7 +126,8 @@
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
                         android:layout_alignParentStart="true"
-                        android:src="@drawable/event" />
+                        android:src="@drawable/a2"
+                        />
 
                     <TextView
                         android:id="@+id/place_name_2"
@@ -180,8 +181,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:background="@color/lightOrange"
-                    android:layout_marginBottom="16dp">
+                    android:background="@drawable/rounded_corners"                    android:layout_marginBottom="16dp">
 
                     <ImageView
                         android:id="@+id/placeimage3"
@@ -189,7 +189,8 @@
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
                         android:layout_alignParentStart="true"
-                        android:src="@drawable/event" />
+                        android:src="@drawable/a3"
+                        />
 
                     <TextView
                         android:id="@+id/place_name_3"
@@ -244,8 +245,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:background="@color/lightOrange"
-                    android:layout_marginBottom="16dp">
+                    android:background="@drawable/rounded_corners"                    android:layout_marginBottom="16dp">
 
                     <ImageView
                         android:id="@+id/place_image_4"
@@ -253,7 +253,8 @@
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
                         android:layout_alignParentStart="true"
-                        android:src="@drawable/event" />
+                        android:src="@drawable/a4"
+                         />
 
                     <TextView
                         android:id="@+id/place_name_4"
