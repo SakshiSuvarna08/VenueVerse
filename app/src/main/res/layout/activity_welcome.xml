@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -15,13 +17,12 @@
         <include layout="@layout/toolbar_logo" />
     </androidx.appcompat.widget.Toolbar>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:id="@+id/main"
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_below="@+id/toolbar"
     tools:context=".WelcomeActivity">
 
     <ScrollView
@@ -125,14 +126,14 @@
                     <!-- Secondary text below the main text -->
                     <TextView
                         android:id="@+id/expandText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="313dp"
+                        android:layout_height="33dp"
                         android:layout_below="@id/accommodation"
                         android:layout_alignStart="@id/accommodation"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="23dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="18dp"
                         android:paddingTop="8dp"
-                        android:text=" Stay or reside temporarily or permanently, such as a  hotel,apartment or house."
+                        android:text="Stay temporarily such as hotel, apartment or house."
                         android:textColor="@color/orange"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -190,7 +191,7 @@
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="36dp"
                         android:paddingTop="8dp"
-                        android:text="Designed to host conferences, exhibitions, and large-scale events"
+                        android:text="Designed to host conferences, large-scale events."
                         android:textColor="@color/orange"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -314,7 +315,7 @@
                         android:layout_marginStart="3dp"
                         android:layout_marginTop="37dp"
                         android:paddingTop="8dp"
-                        android:text="Hosting events such as lectures, performances,public gatherings"
+                        android:text="Hosting lectures, performances, gatherings."
                         android:textColor="@color/orange"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -324,7 +325,7 @@
 
 
         </LinearLayout>
-    </ScrollView>
+  </ScrollView>
 </RelativeLayout>
 </RelativeLayout>
 

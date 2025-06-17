@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context=".ContactActivity">
+
+    <!-- Toolbar at the top -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFA500"
+        android:gravity="center_vertical">
+
+        <!-- Include the custom logo layout -->
+        <include layout="@layout/toolbar_logo" />
+    </androidx.appcompat.widget.Toolbar>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_below="@+id/toolbar"
     android:background="@color/white"
     tools:context=".sports_details">
 
@@ -177,3 +199,4 @@
         android:text="BOOK NOW"
         android:textColor="@android:color/black" />
 </LinearLayout>
+</RelativeLayout>

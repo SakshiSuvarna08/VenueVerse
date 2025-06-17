@@ -31,7 +31,7 @@ public class BaseActivity extends AppCompatActivity {
         if (toolbar != null) {
             toolbar.setOverflowIcon(overflowIcon);
             setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayShowTitleEnabled(true );
         }
     }
 
@@ -53,6 +53,7 @@ public class BaseActivity extends AppCompatActivity {
 
         // Show or hide menu items based on login state
         menu.findItem(R.id.menu_sign_in).setVisible(!isLoggedIn);
+        menu.findItem(R.id.menu_welcome).setVisible(isLoggedIn);
         menu.findItem(R.id.menu_sign_up).setVisible(!isLoggedIn);
         menu.findItem(R.id.menu_sign_out).setVisible(isLoggedIn);
         menu.findItem(R.id.menu_dashboard).setVisible(isLoggedIn);
@@ -78,44 +79,38 @@ public class BaseActivity extends AppCompatActivity {
         int id = item.getItemId();
         String email = getEmailId(); // Retrieve the user's email
 
-        Intent intent; // Declare intent variable
+        Intent intent = null; // Declare intent variable
 
-        switch (id) {
-            case R.id.menu_home:
-                intent = new Intent(this, MainActivity.class);
-                break;
-            case R.id.menu_welcome:
-                intent = new Intent(this, WelcomeActivity.class);
-                break;
-            case R.id.menu_feedback:
-                intent = new Intent(this, FeedbackActivity.class);
-                break;
-            case R.id.menu_contact:
-                intent = new Intent(this, ContactActivity.class);
-                break;
-            case R.id.menu_sign_in:
-                intent = new Intent(this, LoginActivity.class);
-                break;
-            case R.id.menu_sign_up:
-                intent = new Intent(this, RegisterActivity.class);
-                break;
-            case R.id.menu_dashboard:
-                intent = new Intent(this, DashboardActivity.class);
-                break;
-            case R.id.menu_sign_out:
-                intent = new Intent(this, LogoutActivity.class);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
+        // Using if-else instead of switch statement
+        if (id == R.id.menu_home) {
+            intent = new Intent(this, MainActivity.class);
+        } else if (id == R.id.menu_welcome) {
+            intent = new Intent(this, WelcomeActivity.class);
+        } else if (id == R.id.menu_feedback) {
+            intent = new Intent(this, FeedbackActivity.class);
+        } else if (id == R.id.menu_contact) {
+            intent = new Intent(this, ContactActivity.class);
+        } else if (id == R.id.menu_sign_in) {
+            intent = new Intent(this, LoginActivity.class);
+        } else if (id == R.id.menu_sign_up) {
+            intent = new Intent(this, RegisterActivity.class);
+        } else if (id == R.id.menu_dashboard) {
+            intent = new Intent(this, DashboardActivity.class);
+        } else if (id == R.id.menu_sign_out) {
+            intent = new Intent(this, LogoutActivity.class);
+        } else {
+            return super.onOptionsItemSelected(item);
         }
 
         // Add the email to the intent for all cases
         if (intent != null) {
-            intent.putExtra("USER_EMAIL", email); // Sending the email as an extra
+            String Email = intent.getStringExtra("Email");
+            intent.putExtra("Email", Email);
+            intent.putExtra("Email", email);
+            // Sending the email as an extra
             startActivity(intent);
         }
 
         return true; // Indicate that the event was handled
     }
-
 }

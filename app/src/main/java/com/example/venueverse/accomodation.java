@@ -9,8 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,10 +44,13 @@ public class accomodation extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Set custom overflow icon
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.menu_icon));
 
         // Receiving the venue_type from the Intent
         Intent intent = getIntent();
         valueReceived = intent.getStringExtra("venue_type");
+        String email = intent.getStringExtra("email");
         Log.d("accomodation", "Received venue type: " + valueReceived);  // Log received venue_type
 
         // Initialize Firebase database
@@ -59,6 +65,7 @@ public class accomodation extends BaseActivity {
         place3PriceTextView = findViewById(R.id.price3);
         place4NameTextView = findViewById(R.id.place_name_4);
         place4PriceTextView = findViewById(R.id.price4);
+        //intent.putExtra("email", email);
 
         // Fetch data from Firebase
         fetchPlaceNamesAndPrices();
@@ -133,7 +140,15 @@ public class accomodation extends BaseActivity {
     private void openDetailsPage(String placeKey) {
         // Open details page with the placeKey
         Intent intent = new Intent(this, accomd_details.class);
-        intent.putExtra("placeKey", placeKey);  // Pass the place key
+        intent.putExtra("placeKey", placeKey);
+
+        // Check if intent is null or the extra "email" is null
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String Email = currentUser.getEmail();
+            intent.putExtra("Email", Email);
+        }
         startActivity(intent);
     }
 

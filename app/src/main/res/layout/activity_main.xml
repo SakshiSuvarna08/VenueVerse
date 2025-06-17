@@ -13,8 +13,7 @@
         android:gravity="center_vertical">
 
         <!-- Include the custom logo layout -->
-        <include layout="@layout/toolbar_logo"
-           />
+        <include layout="@layout/toolbar_logo" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
@@ -28,8 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <!-- ImageView -->
             <FrameLayout
@@ -64,30 +62,26 @@
             <!-- LinearLayout for TextViews and Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="30dp"
                 android:padding="16dp"
                 android:paddingVertical="20dp"
-
                 android:gravity="center"
-                android:background="@drawable/rounded_corners"> <!-- Center align all children -->
+                android:background="@drawable/rounded_corners">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
-                    android:src="@drawable/welcome"/>
+                    android:src="@drawable/welcome" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome to Venue Verse!"
+                    android:text="Welcome to VenueVerse!"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="16dp" />
-                    android:text="Login"
-                    android:backgroundTint="@color/orange"
-                    android:layout_marginRight="20dp"
-                     />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -95,16 +89,13 @@
                     android:text="Get Started!"
                     android:textSize="16sp"
                     android:layout_marginBottom="20dp" />
-                    android:text="Register"
-                    android:backgroundTint="@color/orange"
-                    /> <!-- Apply button style -->
 
                 <!-- Horizontal LinearLayout to center align buttons -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center"> <!-- Center align buttons -->
+                    android:gravity="center">
 
                     <Button
                         android:id="@+id/login_button"
@@ -123,19 +114,20 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Contact Us Section -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:paddingVertical="20dp"
                 android:background="@color/white"
-                android:gravity="center"> <!-- Center align all children -->
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
-                    android:src="@drawable/contact"/>
+                    android:src="@drawable/contact" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -160,19 +152,20 @@
                     android:backgroundTint="@color/orange" />
             </LinearLayout>
 
+            <!-- Feedback Section -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:paddingVertical="20dp"
                 android:gravity="center"
-                android:background="@drawable/rounded_corners"> <!-- Center align all children -->
+                android:background="@drawable/rounded_corners">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
-                    android:src="@drawable/feedback"/>
+                    android:src="@drawable/feedback" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -199,76 +192,3 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:paddingVertical="20dp"
-            android:background="@color/white"
-            android:gravity="center"> <!-- Center align all children -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/contact"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Connect with Us!"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reach out for any queries or support.\n We're here to help!"
-                android:textSize="16sp"
-                android:layout_marginBottom="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contact Us"
-                android:layout_marginRight="20dp"
-                android:backgroundTint="@color/orange"
-                style="@style/OrangeButton" /> <!-- Apply button style -->
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:paddingVertical="20dp"
-            android:background="@color/lightOrange"
-            android:gravity="center"> <!-- Center align all children -->
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:src="@drawable/feedback"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Share your experience with Us!"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your feedback matters!\n Share your thoughts and help us improve."
-                android:textSize="16sp"
-                android:layout_marginBottom="20dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Feedback"
-                android:backgroundTint="@color/orange"
-                android:layout_marginRight="20dp"
-                style="@style/OrangeButton" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>

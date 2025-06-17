@@ -195,7 +195,7 @@
     <!-- Pay Button -->
     <Button
         android:id="@+id/pay_button"
-        android:layout_width="310dp"
+        android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginTop="18dp"

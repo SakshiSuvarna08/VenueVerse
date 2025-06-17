@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +22,7 @@ public class DashboardActivity extends BaseActivity {
 
     LinearLayout bookingsContainer;
     DatabaseReference databaseReference;
-    String username, email;
+    String Email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +32,17 @@ public class DashboardActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Set custom overflow icon
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.menu_icon));
 
         // Initialize the container layout
         bookingsContainer = findViewById(R.id.bookings_container);
 
         // Get intent data
         Intent intent = getIntent();
-        username = intent.getStringExtra("username");
 
         //use this as no username extraction logic present
-        email = intent.getStringExtra("username");
-
-        if (username == null || username.isEmpty()) {
-            username = "nk";  // Default username in case it's not passed
-        }
+        Email = intent.getStringExtra("Email");
 
         // Initialize Firebase Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("Bdata");
@@ -55,7 +53,7 @@ public class DashboardActivity extends BaseActivity {
 
     private void fetchAllBookingsFromFirebase() {
         // Query data from Firebase based on the UserName field
-        databaseReference.orderByChild("userName").equalTo(username)
+        databaseReference.orderByChild("email").equalTo(Email)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -88,6 +86,7 @@ public class DashboardActivity extends BaseActivity {
                         bookingsContainer.addView(errorText);
                     }
                 });
+//
     }
 
     private void addBookingToLayout(String venueName, String eventDate, Integer numberOfDays, Integer totalAmount) {

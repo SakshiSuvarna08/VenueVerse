@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,132 +20,130 @@
         <include layout="@layout/toolbar_logo" />
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Rest of the layout below the toolbar -->
-    <RelativeLayout
-        android:id="@+id/contact_sub_group"
+    <!-- Parent layout with padding -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:padding="25dp"
-        android:background="@drawable/rounded_corners"
-        android:layout_below="@id/toolbar"> <!-- This places the layout below the toolbar -->
+        android:layout_height="wrap_content"
+        android:paddingTop="90dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentBottom="true">
 
-        <TextView
-            android:id="@+id/customer_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You can get in touch with us through below platforms"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:paddingBottom="16dp"
-            android:layout_marginTop="5dp"
-            android:textSize="13sp"
-            android:paddingTop="20sp"
-            android:gravity="center" />
-
+        <!-- Layout below the toolbar with centered content and rounded corners -->
         <LinearLayout
-            android:id="@+id/cust_support"
+            android:id="@+id/centered_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/customer_textView"
-            android:background="@drawable/rounded_sub_corner"
-            android:layout_marginTop="40dp"
             android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginBottom="16dp">
-
-            <!-- Customer support details -->
-            <TextView
-                android:id="@+id/tv_customer_support_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CUSTOMER SUPPORT"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:paddingBottom="8dp"
-                android:textColor="@color/black" />
-
-            <RelativeLayout
-                android:id="@+id/cusomer_listView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left">
-
-                <ImageView
-                    android:id="@+id/contact_logo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_contact" />
-
-                <TextView
-                    android:id="@+id/contact_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+91-1234567890"
-                    android:textSize="16sp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_toEndOf="@+id/contact_logo"
-                    android:layout_marginStart="10dp"
-                    android:layout_centerVertical="true" />
-
-            </RelativeLayout>
-
-            <!-- Email support details -->
-            <RelativeLayout
-                android:id="@+id/email_listView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left">
-
-                <ImageView
-                    android:id="@+id/email_logo"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_email" />
-
-                <TextView
-                    android:id="@+id/email_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="venueverse@gmail.com"
-                    android:textSize="16sp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:layout_toEndOf="@+id/email_logo"
-                    android:layout_marginStart="10dp"
-                    android:layout_centerVertical="true" />
-
-            </RelativeLayout>
-        </LinearLayout>
-
-        <!-- Social media group -->
-        <LinearLayout
-            android:id="@+id/social_media_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cust_support"
-            android:background="@drawable/rounded_sub_corner"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="30dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/rounded_corners">
 
             <TextView
-                android:id="@+id/social_media_header"
+                android:id="@+id/customer_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SOCIAL MEDIA"
+                android:text="You can get in touch with us through below platforms"
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:paddingBottom="8dp"
-                android:textColor="@color/black" />
+                android:paddingBottom="16dp"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal" />
 
-            <!-- Social media platforms -->
-            <RelativeLayout
-                android:id="@+id/socialMedia_listView"
+            <!-- Customer support section -->
+            <LinearLayout
+                android:id="@+id/cust_support"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@drawable/rounded_sub_corner"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/tv_customer_support_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CUSTOMER SUPPORT"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/black"
+                    android:gravity="center" />
+
+                <RelativeLayout
+                    android:id="@+id/cusomer_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left">
+
+                    <ImageView
+                        android:id="@+id/contact_logo"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_contact" />
+
+                    <TextView
+                        android:id="@+id/contact_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+91-1234567890"
+                        android:textSize="16sp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_toEndOf="@+id/contact_logo"
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/email_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/email_logo"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_email" />
+
+                    <TextView
+                        android:id="@+id/email_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="venueverse@gmail.com"
+                        android:textSize="16sp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_toEndOf="@+id/email_logo"
+                        android:layout_marginStart="10dp"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- Social media group -->
+            <LinearLayout
+                android:id="@+id/social_media_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@drawable/rounded_sub_corner"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/social_media_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOCIAL MEDIA"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:paddingBottom="8dp"
+                    android:textColor="@color/black" />
 
                 <RelativeLayout
                     android:id="@+id/instagram_listView"
@@ -172,7 +169,6 @@
                         android:layout_toEndOf="@+id/instagram_logo"
                         android:layout_marginStart="10dp"
                         android:layout_centerVertical="true" />
-
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -180,7 +176,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/instagram_listView"
-                    android:gravity="left">
+                    android:gravity="left"
+                    android:layout_marginTop="10dp">
 
                     <ImageView
                         android:id="@+id/twitter_logo"
@@ -200,7 +197,6 @@
                         android:layout_toEndOf="@+id/twitter_logo"
                         android:layout_marginStart="10dp"
                         android:layout_centerVertical="true" />
-
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -208,7 +204,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/twitter_listView"
-                    android:gravity="left">
+                    android:gravity="left"
+                    android:layout_marginTop="10dp">
 
                     <ImageView
                         android:id="@+id/facebook_logo"
@@ -228,13 +225,8 @@
                         android:layout_toEndOf="@+id/facebook_logo"
                         android:layout_marginStart="10dp"
                         android:layout_centerVertical="true" />
-
                 </RelativeLayout>
-
-            </RelativeLayout>
-
+            </LinearLayout>
         </LinearLayout>
-
-    </RelativeLayout>
-
+    </LinearLayout>
 </RelativeLayout>

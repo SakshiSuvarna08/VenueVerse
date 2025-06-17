@@ -6,18 +6,23 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class audi_details extends AppCompatActivity {
+public class audi_details extends BaseActivity {
 
     private TextView placeName;
     private TextView placeDescription;
@@ -28,7 +33,8 @@ public class audi_details extends AppCompatActivity {
     private TextView detailTheme; // For Theme info
     private TextView detailStage; // For Stage info
     private ImageView detailImage; // Optional image (can be uncommented if you add this in XML)
-    private Button bookNow; // Button for booking
+    private Button bookNow;
+    private ViewFlipper viewFlipper;// Button for booking
 
     private FirebaseDatabase database;
     private String placeKey;
@@ -39,10 +45,15 @@ public class audi_details extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.audi_deatils);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Set custom overflow icon
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.menu_icon));
+
+
         // Receive the venue type from Intent (can be used if needed for logic)
-        Intent intent = getIntent();
-        String valueReceived = intent.getStringExtra("venue_type");
-        Log.d("auditoriums", "Received venue type: " + valueReceived);
+
 
         // Initialize Firebase database
         database = FirebaseDatabase.getInstance();
@@ -59,10 +70,11 @@ public class audi_details extends AppCompatActivity {
         // Uncomment if adding image view in the XML layout
         // detailImage = findViewById(R.id.detail_image);
         bookNow = findViewById(R.id.booknow);
+        viewFlipper = findViewById(R.id.viewFlipper);
 
         // Get the place key from the intent
         placeKey = getIntent().getStringExtra("placeKey");
-
+        setImagesForViewFlipper();
         // Fetch details from Firebase
         fetchPlaceDetails();
 
@@ -70,13 +82,63 @@ public class audi_details extends AppCompatActivity {
         bookNow.setOnClickListener(v -> {
             // Add your booking logic here
             Intent formIntent = new Intent(audi_details.this, FormActivity.class);
+            Intent intent = getIntent();
 
-            // formIntent.putExtra("venuename", String.valueOf(placeName));
-            // formIntent.putExtra("price", String.valueOf( detailPrice));
-            //  startActivity(formIntent);
 
+            // Extract and convert the price to double
+            String priceText = detailPrice.getText().toString().replace("Rs ", "");  // Removing "Rs " prefix if it's included
+            try {
+                priceText=priceText.replace(",", "");
+                double price = Double.parseDouble(priceText);  // Convert the extracted text to a double
+                formIntent.putExtra("price", price);           // Pass the double value to the next activity
+
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+                    String Email = currentUser.getEmail();
+                    formIntent.putExtra("Email", Email);
+                }
+                // Get the actual text of the venue name
+                String venueName = placeName.getText().toString();
+                formIntent.putExtra("venuename", venueName);   // Pass the venue name as text
+
+                // Start the next activity
+                startActivity(formIntent);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                // Handle the exception (optional: show a message or log the error)
+            }
         });
+    }
+    private void setImagesForViewFlipper() {
+        int[] images;
 
+        switch (placeKey) {
+            case "1":
+                images = new int[]{R.drawable.i11, R.drawable.i12, R.drawable.i13, R.drawable.i1};
+                break;
+            case "2":
+                images = new int[]{R.drawable.i21, R.drawable.i2, R.drawable.i21, R.drawable.i2};
+                break;
+            case "3":
+                images = new int[]{R.drawable.i31, R.drawable.i32, R.drawable.i31, R.drawable.i3};
+                break;
+            case "4":
+                images = new int[]{R.drawable.i41, R.drawable.i42, R.drawable.i43, R.drawable.i4};
+                break;
+            default:
+                images = new int[]{R.drawable.i11, R.drawable.i12, R.drawable.i13, R.drawable.i1};
+                return;
+        }
+
+        viewFlipper.removeAllViews();
+
+        for (int imageRes : images) {
+            ImageView imageView = new ImageView(this);
+            imageView.setImageResource(imageRes);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            viewFlipper.addView(imageView);
+        }
     }
 
     private void fetchPlaceDetails() {
